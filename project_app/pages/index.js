@@ -428,13 +428,13 @@ const swiper = new Swiper('.swiper', {
               <p className = "bold"></p>
               <p>Are you excited about the potential of Web3 and the Metaverse? Do you want to connect with others who share your passion for decentralization and virtual reality? Look no further, because PushinPeeps is here to help. </p>
 
-  <p>With our community on Discord, you'll have access to a wealth of knowledge, support, and resources to help you navigate the exciting world of Web3 and the Metaverse. Whether you're just starting out or you're a seasoned pro, PushinPeeps has something for everyone.</p>
+  <p>With our community on Discord, you will have access to a wealth of knowledge, support, and resources to help you navigate the exciting world of Web3 and the Metaverse. Whether you are just starting out or you are a seasoned pro, PushinPeeps has something for everyone.</p>
 
           </div>  
    
           <div className = {styles.grid_items}>
 
-              <p className = "bold">Here's what you can expect from our community</p>
+              <p className = "bold">Here is what you can expect from our community</p>
 <ul>
               <li>Expert advice and supportive environment where you can connect with ohters who share your passion for Web3 and the Metaverse</li>
               <li>Access to wide range of resources, including Web3 and Metaverse news, tutorials and more</li>
