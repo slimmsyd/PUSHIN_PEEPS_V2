@@ -314,11 +314,11 @@ const swiper = new Swiper('.swiper', {
     <div className = {styles.container}>
       <div className = {styles.hero}>
             <h1 className={styles.widthLarge}>Fostering A Web3 Community Of Validation</h1>
-            <p className = {styles.sub}>Utilzing growth through decentralized proposals, partnerships and creative utility.</p>
+            <p className>Utilzing growth through decentralized proposals, partnerships and creative utility.</p>
 
             <div className = {styles.buttonRow}>
               <button className = {styles.mint}>MINT</button>
-                <span  className = {styles.center}>5 MATIC</span>
+                <span  className = {styles.center}>10 MATIC</span>
 
             
             </div>
