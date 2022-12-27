@@ -1,0 +1,63 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+   
+    background: linear-gradient(180deg, #5F72BE 0%, rgba(153, 33, 232, 0.98) 100%);} 
+    @import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500&display=swap');
+
+
+    body{
+      padding:0;
+      margin:0;
+      overflow-x: hidden !important;
+    }
+
+    h1{ 
+      font-size: 72px;
+      color: #fff;
+      font-family: 'Sono', sans-serif;
+    }
+    
+    h2{
+      font-size: 64px;
+      color: #fff;
+      font-family: 'Sono', sans-serif;
+
+    }
+    
+    h3{
+      font-size: 24px;
+      color: #fff;
+      font-family: 'Sono', sans-serif;
+
+    }
+    .bold { 
+      font-weight: bolder;
+    }
+    @media screen and (max-width: 989px)
+    {
+      h1 { 
+        font-size: 36px;
+      }
+      h2{
+        font-size: 34px;
+      }
+    }
+
+
+
+    p{
+      font-family: 'Sono', sans-serif;
+      font-size: 20px;
+      color: #fff;
+      line-height: 144%;
+    }
+    a, button,span, strong,h2, li{
+      font-family: 'Sono', sans-serif;
+ 
+    }
