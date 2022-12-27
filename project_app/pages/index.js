@@ -424,40 +424,29 @@ const swiper = new Swiper('.swiper', {
     <div className = {styles.sideBarWrapper}>
         <div className = {styles.grid_column}>
           <div className = {styles.grid_items}>
+
               <p className = "bold"></p>
               <p>Are you excited about the potential of Web3 and the Metaverse? Do you want to connect with others who share your passion for decentralization and virtual reality? Look no further, because PushinPeeps is here to help. </p>
-              
-<p>With our community on Discord, you'll have access to a wealth of knowledge, support, and resources to help you navigate the exciting world of Web3 and the Metaverse. Whether you're just starting out or you're a seasoned pro, PushinPeeps has something for everyone.</p>
+
+  <p>With our community on Discord, you'll have access to a wealth of knowledge, support, and resources to help you navigate the exciting world of Web3 and the Metaverse. Whether you're just starting out or you're a seasoned pro, PushinPeeps has something for everyone.</p>
 
           </div>  
    
           <div className = {styles.grid_items}>
+
               <p className = "bold">Here's what you can expect from our community</p>
 <ul>
               <li>Expert advice and supportive environment where you can connect with ohters who share your passion for Web3 and the Metaverse</li>
               <li>Access to wide range of resources, including Web3 and Metaverse news, tutorials and more</li>
               <li>Opportunities to participate in events, hackathons, and other community activties</li>
-              <li> Networking and collaboration opportunities with like-minded individuals
-</li>
+              <li> Networking and collaboration opportunities with like-minded individuals</li>
             <p>Join PushinPeeps today and become part of the exciting world of Web3 and the Metaverse</p>
              </ul>
 
 
           </div>
    
-          {/* <div className = {styles.grid_items}>
-              <p className= "bold"></p>
-              <p>With our community on Discord, you'll have access to a wealth of knowledge, support, and resources to help you navigate the exciting world of Web3 and the Metaverse. Whether you're just starting out or you're a seasoned pro, PushinPeeps has something for everyone.
-</p>
-              <button className = {`${styles.mint} ${styles.margin_top}`}>FOLLOW US</button>
 
-          </div> */}
-   
-          {/* <div className = {styles.grid_items}>
-              <p className ="bold"> What perks/utilities do I gain from owning a PV2 NFT</p>
-              <p>Whether you own one or multiple the NFTs/utilities apply the same community will take votes on certain traits, number, or even quantity that will be eligible for giveaways/Raffles. For example one week it can be even or odd number NFTs or Glasses Trait holders that will only be eligible to claim Entry Via Utility Dashboard Tropee.</p>
-
-          </div> */}
 
    
         </div>
@@ -536,24 +525,11 @@ const swiper = new Swiper('.swiper', {
   
           <div className = {styles.sideBarWrapper}>
         <div className = {styles.grid_column}>
-          {/* <div className = {styles.grid_items}>
-              <p>Additonal Perks & Utilites</p>
-              <span className = {styles.thin}>More than a strong community we are excited  about the utilities we are offering </span>
-             <ul>
-              <li><strong>Pick Topics-</strong> Vote on some of the topics we dive into with the community</li>
-              <li><strong>Private Events-</strong> Gain access to private critique and Q&A sessions throughout the year</li>
-              <li><strong>Discord Role-</strong> Have the option to sign into discord bot to receive access to exclusive channel and content and conversations</li>
-              <li><strong>Metaverse Utilities-</strong> pace Airdrops, and Digital Asset clothing.
-</li>
-              <li><strong>Secondary Market-</strong> Peeps Welcome reselling on the Opensea secondary market.</li>
-             </ul>
 
-          </div> */}
-  
    
           <div className = {styles.grid_items}>
               <p>PV2NFT is Official Member Id Token to the PushinPeeps Community</p>
-              <li>How long you hold, the quantity, the traits all play a part of your experience within the PushinPeeps community..</li>
+              <li>How long you hold, the quantity, the traits all play a part of your experience within the PushinPeeps community.</li>
               <li>Peeps Utility is Powered by Tropee. This dashboard will run all utility Campaigns. Simply connect your holders wallet and claim.</li>
 
           </div>
