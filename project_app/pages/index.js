@@ -29,6 +29,7 @@ export default function Home() {
   let [accountAddress, setAccountAddress] = useState("");
   const [setLoading, isLoading] = useState(false); 
   const [tokenCost, setTokenCost] = useState("")
+  const [tokenAmount, setTokenAmount] = useState(0)
 
   const web3modal = useRef(); 
 
@@ -114,7 +115,7 @@ let address_account
       console.error(e)
     }
   } 
-  const mint = async() => 
+  const mint = async(amount) => 
   { 
     try{ 
         const provider = await getProviderOrSigner(true); 
@@ -123,8 +124,9 @@ let address_account
           ABI,
           provider
         )
-
-          const balance = await contract.mint({value: utils.parseEther("50")  })
+        
+         
+          const balance = await contract.mint(amount,{value: utils.parseUnits("50")},)
           setLoading(true); 
           console.log(balance)
     }catch(e)
@@ -132,7 +134,6 @@ let address_account
       console.error(e)
     }
   } 
-
 
 
 
@@ -281,7 +282,7 @@ const swiper = new Swiper('.swiper', {
           <div className = {styles.heroContainer}>
           <div className = {styles.linkContainer}>
 
-                    <a onClick={mint} className = {styles.header_links} href = "#">
+                    <a className = {styles.header_links} href = "#">
                       <Image src = {Discord} alt = "Discord" />
                         <span>JOIN US</span>
                       
@@ -311,13 +312,20 @@ const swiper = new Swiper('.swiper', {
       </header>
 
 
-    <div className = {styles.container}>
+  
+      <div className = {styles.container}>
       <div className = {styles.hero}>
             <h1 className={styles.widthLarge}>Fostering A Web3 Community Of Validation</h1>
-            <p className>Utilzing growth through decentralized proposals, partnerships and creative utility.</p>
+            <p className = {styles.sub}>Utilzing growth through decentralized proposals, partnerships and creative utility.</p>
+              <label>How many ?</label>
 
             <div className = {styles.buttonRow}>
-              <button className = {styles.mint}>MINT</button>
+              <input className = {styles.input} type = "number" placeholder = "How Many"
+              onChange = {(e) => setTokenAmount(e.target.value)}
+              />
+              <button
+                disabled = {!tokenAmount > 0}
+              onClick={() => mint(tokenAmount)} className = {styles.mint}>MINT</button>
                 <span  className = {styles.center}>10 MATIC</span>
 
             
@@ -327,6 +335,7 @@ const swiper = new Swiper('.swiper', {
           </div>
 
     </div>
+
 
 
     <div className = {`${styles.slider_wrapper} ${styles.margin_top}`}>

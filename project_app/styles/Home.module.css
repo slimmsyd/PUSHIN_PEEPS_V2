@@ -214,9 +214,27 @@
     max-width: 1280px;
   }
 }
-
+.input {
+  padding: 1.3rem 20px;
+  justify-content: center;
+  color: #fff;
+  width: 35px;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
 .buttonRow{
-  margin-top:50px;
+  margin-top: 10px;
+  /* margin-top:50px; */
   display: flex;
   flex-direction: row;
   width: 50%;
