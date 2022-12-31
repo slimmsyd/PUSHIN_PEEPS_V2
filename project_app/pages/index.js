@@ -115,7 +115,9 @@ let address_account
       console.error(e)
     }
   } 
-  const mint = async(amount) => 
+
+  // const price = async()
+  const mint = async() => 
   { 
     try{ 
         const provider = await getProviderOrSigner(true); 
@@ -126,9 +128,13 @@ let address_account
         )
         
          
-          const balance = await contract.mint(amount,{value: utils.parseUnits("50")},)
-          setLoading(true); 
-          console.log(balance)
+          const tx = await contract.mint(1,{value: utils.parseEther("0.07"),
+          gasLimit: 200000
+        },)
+          //wait for tx 
+          await  tx.wait();
+          window.alert("NFT has been minted"); 
+          console.log(tx)
     }catch(e)
     { 
       console.error(e)
@@ -324,8 +330,8 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                disabled = {!tokenAmount > 0}
-              onClick={() => mint(tokenAmount)} className = {styles.mint}>MINT</button>
+                // disabled = {!tokenAmount > 0}
+              onClick={() => mint()} className = {styles.mint}>MINT</button>
                 <span  className = {styles.center}>10 MATIC</span>
 
             
