@@ -128,7 +128,7 @@ let address_account
         )
         
          
-          const tx = await contract.mint(1,{value: utils.parseEther("0.07"),
+          const tx = await contract.mint(1,{value: utils.parseEther("10"),
           gasLimit: 200000
         },)
           //wait for tx 
