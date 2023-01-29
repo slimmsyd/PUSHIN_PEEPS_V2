@@ -72,7 +72,7 @@ let address_account
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
     // Mumbai testnet
-    if(chainId !== 137) { 
+    if(chainId !== 8001) { 
     }
 
     if(needSigner) { 
@@ -151,11 +151,11 @@ let address_account
         let tokenCost
          let tokenCount
          tokenCount = tokenAmount;
-         tokenCost = tokenCount * 10
+         tokenCost = tokenCount * 0.01
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
-          gasLimit: 21000
+          gasLimit: 50000
         },)
           //wait for tx 
           await  tx.wait();
