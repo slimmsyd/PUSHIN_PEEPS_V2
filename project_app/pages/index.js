@@ -28,7 +28,7 @@ export default function Home() {
   const [isConnected, setIsConnected] = useState(false); 
   let [accountAddress, setAccountAddress] = useState("");
   const [setLoading, isLoading] = useState(false); 
-  const [tokenCost, setTokenCost] = useState("")
+  const [tokenBal, setTokenBal] = useState(0)
   const [tokenAmount, setTokenAmount] = useState(0)
 
   const web3modal = useRef(); 
@@ -109,7 +109,7 @@ let address_account
           provider
         )
           const balance = parseInt((await contract.cost()).toString())
-          console.log(balance)
+          const ethBalance = utils.parseEther(contract.cost())
 
 
     }catch(e)
@@ -151,7 +151,7 @@ let address_account
         let tokenCost
          let tokenCount
          tokenCount = tokenAmount;
-         tokenCost = tokenCount * 10
+         tokenCost = tokenCount * 1.15
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
@@ -603,12 +603,15 @@ const swiper = new Swiper('.swiper', {
       <span className = {styles.thin}>DOA Labs</span>
 
         <div className = {styles.footerFlexRow}>
+          <a href = "https://twitter.com/pushinpeeps">
           <Image  className = {styles.footerImages} src = {Twitter} alt = "twitter" />
+          </a>
+  
           <a href = "https://opensea.io/collection/pushinp-v2">
           <Image   className = {styles.footerImages}  src = {Opensea} alt = "Opensea" />
 
           </a>
-          <a href = "https://discord.gg/cAVdmwJZr6">
+          <a href = "https://www.instagram.com/pushinpeeps/">
           <Image    className = {styles.footerImages} src = {Instagram} alt = "Instagram" />
 
           </a>
