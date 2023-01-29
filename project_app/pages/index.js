@@ -41,7 +41,10 @@ export default function Home() {
         providerOptions: {},
         disableInjectedProvider: false
       }
-    )
+    );
+    read_balance()
+    max_supply();
+    console.log(tokenAmount)
   })
 
 
@@ -68,8 +71,8 @@ let address_account
     //check if connected currenlty to the right chainID
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
+    // Mumbai testnet
     if(chainId !== 137) { 
-      // window.alert("You are on the wrong network, switch to rinkeby")
     }
 
     if(needSigner) { 
@@ -107,7 +110,25 @@ let address_account
         )
           const balance = parseInt((await contract.cost()).toString())
           console.log(balance)
-        
+
+
+    }catch(e)
+    { 
+      console.error(e)
+    }
+  } 
+  const max_supply = async() => 
+  { 
+    try{ 
+        const provider = await getProviderOrSigner(true); 
+        const contract = new Contract(
+          ADDRESS,
+          ABI,
+          provider
+        )
+    
+        const maxSupply = await contract.maxSupply();
+        console.log(parseInt(maxSupply).toString())
 
 
     }catch(e)
@@ -126,10 +147,15 @@ let address_account
           ABI,
           provider
         )
-        
-         
-          const tx = await contract.mint(1,{value: utils.parseEther("10"),
-          gasLimit: 200000
+
+        let tokenCost
+         let tokenCount
+         tokenCount = tokenAmount;
+         tokenCost = tokenCount * 10
+         console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
+      
+          const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
+          gasLimit: 21000
         },)
           //wait for tx 
           await  tx.wait();
@@ -140,6 +166,7 @@ let address_account
       console.error(e)
     }
   } 
+
 
 
 
