@@ -151,7 +151,7 @@ let address_account
         let tokenCost
          let tokenCount
          tokenCount = tokenAmount;
-         tokenCost = tokenCount * 0.01
+         tokenCost = tokenCount * 10
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
