@@ -317,7 +317,7 @@ const swiper = new Swiper('.swiper', {
 
                     <a className = {styles.header_links} href = "#">
                       <Image src = {Discord} alt = "Discord" />
-                        <span>JOIN US</span>
+                        <span><a href = "https://discord.gg/cAVdmwJZr6">JOIN US</a></span>
                       
                       </a>
                   </div>
@@ -359,7 +359,7 @@ const swiper = new Swiper('.swiper', {
               <button
                 // disabled = {!tokenAmount > 0}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
-                <span  className = {styles.center}>10 MATIC</span>
+                {/* <span  className = {styles.center}>10 MATIC</span> */}
 
             
             </div>
@@ -604,8 +604,14 @@ const swiper = new Swiper('.swiper', {
 
         <div className = {styles.footerFlexRow}>
           <Image  className = {styles.footerImages} src = {Twitter} alt = "twitter" />
-          <Image   className = {styles.footerImages}  src = {Opensea} alt = "twitter" />
-          <Image    className = {styles.footerImages} src = {Instagram} alt = "twitter" />
+          <a href = "https://opensea.io/collection/pushinp-v2">
+          <Image   className = {styles.footerImages}  src = {Opensea} alt = "Opensea" />
+
+          </a>
+          <a href = "https://discord.gg/cAVdmwJZr6">
+          <Image    className = {styles.footerImages} src = {Instagram} alt = "Instagram" />
+
+          </a>
       
         </div>
       </div>

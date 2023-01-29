@@ -61,6 +61,10 @@
       font-family: 'Sono', sans-serif;
  
     }
+    a {
+      color: #ffff;
+      text-decoration: none;
+    }
 
     label{
       color: #fff;
