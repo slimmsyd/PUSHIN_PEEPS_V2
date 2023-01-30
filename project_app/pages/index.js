@@ -31,6 +31,7 @@ export default function Home() {
   const [tokenBal, setTokenBal] = useState(0)
   const [tokenAmount, setTokenAmount] = useState(0)
   const [gasPrice, setGasPrice] = useState(0)
+  const [cost, setCost] = useState("");
 
   const web3modal = useRef(); 
 
@@ -45,7 +46,7 @@ export default function Home() {
     );
     read_balance()
     max_supply();
-    console.log(tokenAmount)
+    read_balance()
   })
 
 
@@ -122,8 +123,8 @@ let address_account
           provider
         )
           const balance = parseInt((await contract.cost()).toString())
-
-
+          setCost(balance)
+          console.log(cost)
 
 
     }catch(e)
@@ -186,7 +187,7 @@ let address_account
         let tokenCost
          let tokenCount
          tokenCount = tokenAmount;
-         tokenCost = tokenCount * 1.15
+         tokenCost = tokenCount * cost
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
