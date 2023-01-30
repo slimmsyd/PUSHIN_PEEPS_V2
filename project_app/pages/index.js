@@ -47,6 +47,7 @@ export default function Home() {
     read_balance()
     max_supply();
     read_balance()
+    console.log(gasPrice)
   })
 
 
@@ -69,8 +70,6 @@ let address_account
     gasPriceString = gasPrice.toString()
     
     let gasPricePercentrage = (parseInt(gasPriceString) / 10);
-    console.log(gasPricePercentrage, "this is the gas price percentage")
-    console.log(parseInt(gasPriceString), "this is the gas price without the less")
 
     let finalizedGasPrice = (parseInt(gasPricePercentrage) + parseInt(gasPriceString))
     setGasPrice(finalizedGasPrice)
@@ -173,6 +172,7 @@ let address_account
     }
   } 
 
+
   // const price = async()
   const mint = async() => 
   { 
@@ -191,7 +191,6 @@ let address_account
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
-          gasLimit: gasPrice
         },)
           //wait for tx 
           await  tx.wait();
