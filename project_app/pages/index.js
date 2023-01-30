@@ -175,7 +175,7 @@ let address_account
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
-          gasLimit: 50000
+          gasLimit: 100000
         },)
           //wait for tx 
           await  tx.wait();
