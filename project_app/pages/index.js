@@ -521,9 +521,20 @@ const swiper = new Swiper('.swiper', {
 
     <div className = {styles.row}>
 
-    <button
+    <div className = {`${styles.mint} ${styles.margin_top} ${styles.buttonRow}`}>
+              <input className = {styles.input} type = "number" placeholder = "How Many"
+              onChange = {(e) => setTokenAmount(e.target.value)}
+              />
+              <button
                 // disabled = {!tokenAmount > 0}
-              onClick={() => mint()} className = {`${styles.mint} ${styles.margin_top}`}>MINT</button>
+              onClick={() => mint()} className = {styles.mint}>MINT</button>
+                {/* <span  className = {styles.center}>10 MATIC</span> */}
+
+            
+            </div>
+
+    {/* <button
+              onClick={() => mint()} className = {`${styles.mint} ${styles.margin_top}`}>MINT</button> */}
 
 
     </div>
