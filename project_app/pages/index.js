@@ -44,7 +44,6 @@ export default function Home() {
     );
     read_balance()
     max_supply();
-    new_mint_amount();
     console.log(tokenAmount)
   })
 
@@ -149,9 +148,7 @@ let address_account
           ABI,
           provider
         )
-        let new_maxMintAmount
-         new_maxMintAmount = await contract.maxMintAmount();
-        console.log(new_maxMintAmount.toString(), "new max mint amount")
+   
 
 
     }catch(e)
