@@ -86,7 +86,7 @@ let address_account
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
     // Mumbai testnet
-    if(chainId !== 8001) { 
+    if(chainId !== 137) { 
     }
 
     if(needSigner) { 
