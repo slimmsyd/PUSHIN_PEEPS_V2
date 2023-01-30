@@ -109,7 +109,8 @@ let address_account
           provider
         )
           const balance = parseInt((await contract.cost()).toString())
-          const ethBalance = utils.parseEther(contract.cost())
+
+
 
 
     }catch(e)
