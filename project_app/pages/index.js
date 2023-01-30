@@ -44,6 +44,7 @@ export default function Home() {
     );
     read_balance()
     max_supply();
+    new_mint_amount();
     console.log(tokenAmount)
   })
 
@@ -117,6 +118,9 @@ let address_account
       console.error(e)
     }
   } 
+
+
+  
   const max_supply = async() => 
   { 
     try{ 
@@ -129,6 +133,25 @@ let address_account
     
         const maxSupply = await contract.maxSupply();
         console.log(parseInt(maxSupply).toString())
+
+
+    }catch(e)
+    { 
+      console.error(e)
+    }
+  } 
+  const new_mint_amount = async() => 
+  { 
+    try{ 
+        const provider = await getProviderOrSigner(true); 
+        const contract = new Contract(
+          ADDRESS,
+          ABI,
+          provider
+        )
+        let new_maxMintAmount
+         new_maxMintAmount = await contract.maxMintAmount();
+        console.log(new_maxMintAmount.toString(), "new max mint amount")
 
 
     }catch(e)
@@ -498,7 +521,10 @@ const swiper = new Swiper('.swiper', {
 
     <div className = {styles.row}>
 
-      <a className = {`${styles.margin_top} ${styles.mint}`}>MINT</a>
+    <button
+                // disabled = {!tokenAmount > 0}
+              onClick={() => mint()} className = {`${styles.mint} ${styles.margin_top}`}>MINT</button>
+
 
     </div>
     {/* MOBILE SWIPER */}
