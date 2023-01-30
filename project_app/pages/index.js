@@ -30,6 +30,7 @@ export default function Home() {
   const [setLoading, isLoading] = useState(false); 
   const [tokenBal, setTokenBal] = useState(0)
   const [tokenAmount, setTokenAmount] = useState(0)
+  const [gasPrice, setGasPrice] = useState(0)
 
   const web3modal = useRef(); 
 
@@ -61,6 +62,18 @@ let address_account
   const getProviderOrSigner = async(needSigner = false) => { 
     const provider = await web3modal.current.connect()
     const web3provider = new providers.Web3Provider(provider)
+    
+    const gasPrice = await web3provider.getGasPrice();
+    let gasPriceString 
+    gasPriceString = gasPrice.toString()
+    
+    let gasPricePercentrage = (parseInt(gasPriceString) / 10);
+    console.log(gasPricePercentrage, "this is the gas price percentage")
+    console.log(parseInt(gasPriceString), "this is the gas price without the less")
+
+    let finalizedGasPrice = (parseInt(gasPricePercentrage) + parseInt(gasPriceString))
+    setGasPrice(finalizedGasPrice)
+
 
     const signer =  web3provider.getSigner();
     const address = await  signer.getAddress();
@@ -120,6 +133,7 @@ let address_account
   } 
 
 
+
   
   const max_supply = async() => 
   { 
@@ -176,7 +190,7 @@ let address_account
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
-          gasLimit: 100000
+          gasLimit: gasPrice
         },)
           //wait for tx 
           await  tx.wait();
