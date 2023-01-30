@@ -32,6 +32,7 @@ export default function Home() {
   const [tokenAmount, setTokenAmount] = useState(0)
   const [gasPrice, setGasPrice] = useState(0)
   const [cost, setCost] = useState("");
+  const [canMint, setcanMint] = useState(true);
 
   const web3modal = useRef(); 
 
@@ -392,7 +393,7 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                // disabled = {!tokenAmount > 0}
+                disabled = {canMint}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
                 {/* <span  className = {styles.center}>10 MATIC</span> */}
 
@@ -538,15 +539,14 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                // disabled = {!tokenAmount > 0}
+                disabled = {canMint}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
                 {/* <span  className = {styles.center}>10 MATIC</span> */}
 
             
             </div>
 
-    {/* <button
-              onClick={() => mint()} className = {`${styles.mint} ${styles.margin_top}`}>MINT</button> */}
+
 
 
     </div>
