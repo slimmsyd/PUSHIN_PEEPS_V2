@@ -45,10 +45,7 @@ export default function Home() {
         disableInjectedProvider: false
       }
     );
-    read_balance()
-    max_supply();
-    read_balance()
-    console.log(gasPrice)
+
   })
 
 
@@ -353,7 +350,7 @@ const swiper = new Swiper('.swiper', {
 
                     <a className = {styles.header_links} href = "#">
                       <Image src = {Discord} alt = "Discord" />
-                        <span><a href = "https://discord.gg/cAVdmwJZr6">JOIN US</a></span>
+                 <a href = "https://discord.gg/cAVdmwJZr6">JOIN US</a>
                       
                       </a>
                   </div>
