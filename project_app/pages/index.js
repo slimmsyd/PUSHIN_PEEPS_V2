@@ -32,7 +32,7 @@ export default function Home() {
   const [tokenAmount, setTokenAmount] = useState(0)
   const [gasPrice, setGasPrice] = useState(0)
   const [cost, setCost] = useState("");
-  const [canMint, setcanMint] = useState(true);
+  const [canMint, setcanMint] = useState(false);
 
   const web3modal = useRef(); 
 
@@ -45,6 +45,8 @@ export default function Home() {
         disableInjectedProvider: false
       }
     );
+
+    console.log("is this working? ")
 
   })
 
