@@ -86,6 +86,10 @@ let address_account
     const {chainId} = await web3provider.getNetwork();
     // Mumbai testnet
     if(chainId !== 137) { 
+<<<<<<< HEAD
+      window.alert("You are on the wrong network, switch to Mumbail")
+=======
+>>>>>>> origin/main
     }
 
     if(needSigner) { 
@@ -183,6 +187,12 @@ let address_account
           ABI,
           provider
         )
+<<<<<<< HEAD
+        
+         
+          const tx = await contract.mint(1,{value: utils.parseEther("1"),
+          gasLimit: 200000
+=======
 
         let tokenCost
          let tokenCount
@@ -191,6 +201,7 @@ let address_account
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
+>>>>>>> origin/main
         },)
           //wait for tx 
           await  tx.wait();
