@@ -28,8 +28,11 @@ export default function Home() {
   const [isConnected, setIsConnected] = useState(false); 
   let [accountAddress, setAccountAddress] = useState("");
   const [setLoading, isLoading] = useState(false); 
-  const [tokenCost, setTokenCost] = useState("")
+  const [tokenBal, setTokenBal] = useState(0)
   const [tokenAmount, setTokenAmount] = useState(0)
+  const [gasPrice, setGasPrice] = useState(0)
+  const [cost, setCost] = useState("");
+  const [canMint, setcanMint] = useState(true);
 
   const web3modal = useRef(); 
 
@@ -41,7 +44,8 @@ export default function Home() {
         providerOptions: {},
         disableInjectedProvider: false
       }
-    )
+    );
+
   })
 
 
@@ -58,6 +62,16 @@ let address_account
   const getProviderOrSigner = async(needSigner = false) => { 
     const provider = await web3modal.current.connect()
     const web3provider = new providers.Web3Provider(provider)
+    
+    const gasPrice = await web3provider.getGasPrice();
+    let gasPriceString 
+    gasPriceString = gasPrice.toString()
+    
+    let gasPricePercentrage = (parseInt(gasPriceString) / 10);
+
+    let finalizedGasPrice = (parseInt(gasPricePercentrage) + parseInt(gasPriceString))
+    setGasPrice(finalizedGasPrice)
+
 
     const signer =  web3provider.getSigner();
     const address = await  signer.getAddress();
@@ -68,8 +82,12 @@ let address_account
     //check if connected currenlty to the right chainID
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
+    // Mumbai testnet
     if(chainId !== 137) { 
+<<<<<<< HEAD
       window.alert("You are on the wrong network, switch to Mumbail")
+=======
+>>>>>>> origin/main
     }
 
     if(needSigner) { 
@@ -106,8 +124,8 @@ let address_account
           provider
         )
           const balance = parseInt((await contract.cost()).toString())
-          console.log(balance)
-        
+          setCost(balance)
+          console.log(cost)
 
 
     }catch(e)
@@ -115,6 +133,47 @@ let address_account
       console.error(e)
     }
   } 
+
+
+
+  
+  const max_supply = async() => 
+  { 
+    try{ 
+        const provider = await getProviderOrSigner(true); 
+        const contract = new Contract(
+          ADDRESS,
+          ABI,
+          provider
+        )
+    
+        const maxSupply = await contract.maxSupply();
+        console.log(parseInt(maxSupply).toString())
+
+
+    }catch(e)
+    { 
+      console.error(e)
+    }
+  } 
+  const new_mint_amount = async() => 
+  { 
+    try{ 
+        const provider = await getProviderOrSigner(true); 
+        const contract = new Contract(
+          ADDRESS,
+          ABI,
+          provider
+        )
+   
+
+
+    }catch(e)
+    { 
+      console.error(e)
+    }
+  } 
+
 
   // const price = async()
   const mint = async() => 
@@ -126,10 +185,21 @@ let address_account
           ABI,
           provider
         )
+<<<<<<< HEAD
         
          
           const tx = await contract.mint(1,{value: utils.parseEther("1"),
           gasLimit: 200000
+=======
+
+        let tokenCost
+         let tokenCount
+         tokenCount = tokenAmount;
+         tokenCost = tokenCount * cost
+         console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
+      
+          const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
+>>>>>>> origin/main
         },)
           //wait for tx 
           await  tx.wait();
@@ -140,6 +210,7 @@ let address_account
       console.error(e)
     }
   } 
+
 
 
 
@@ -290,7 +361,7 @@ const swiper = new Swiper('.swiper', {
 
                     <a className = {styles.header_links} href = "#">
                       <Image src = {Discord} alt = "Discord" />
-                        <span>JOIN US</span>
+                 <a href = "https://discord.gg/cAVdmwJZr6">JOIN US</a>
                       
                       </a>
                   </div>
@@ -330,9 +401,9 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                // disabled = {!tokenAmount > 0}
+                disabled = {canMint}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
-                <span  className = {styles.center}>10 MATIC</span>
+                {/* <span  className = {styles.center}>10 MATIC</span> */}
 
             
             </div>
@@ -471,7 +542,20 @@ const swiper = new Swiper('.swiper', {
 
     <div className = {styles.row}>
 
-      <a className = {`${styles.margin_top} ${styles.mint}`}>MINT</a>
+    <div className = {`${styles.mint} ${styles.margin_top} ${styles.buttonRow}`}>
+              <input className = {styles.input} type = "number" placeholder = "How Many"
+              onChange = {(e) => setTokenAmount(e.target.value)}
+              />
+              <button
+                disabled = {canMint}
+              onClick={() => mint()} className = {styles.mint}>MINT</button>
+                {/* <span  className = {styles.center}>10 MATIC</span> */}
+
+            
+            </div>
+
+
+
 
     </div>
     {/* MOBILE SWIPER */}
@@ -576,9 +660,18 @@ const swiper = new Swiper('.swiper', {
       <span className = {styles.thin}>DOA Labs</span>
 
         <div className = {styles.footerFlexRow}>
+          <a href = "https://twitter.com/pushinpeeps">
           <Image  className = {styles.footerImages} src = {Twitter} alt = "twitter" />
-          <Image   className = {styles.footerImages}  src = {Opensea} alt = "twitter" />
-          <Image    className = {styles.footerImages} src = {Instagram} alt = "twitter" />
+          </a>
+  
+          <a href = "https://opensea.io/collection/pushinp-v2">
+          <Image   className = {styles.footerImages}  src = {Opensea} alt = "Opensea" />
+
+          </a>
+          <a href = "https://www.instagram.com/pushinpeeps/">
+          <Image    className = {styles.footerImages} src = {Instagram} alt = "Instagram" />
+
+          </a>
       
         </div>
       </div>
