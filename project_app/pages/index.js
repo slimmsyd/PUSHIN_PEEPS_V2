@@ -69,7 +69,7 @@ let address_account
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
     if(chainId !== 137) { 
-      // window.alert("You are on the wrong network, switch to rinkeby")
+      window.alert("You are on the wrong network, switch to Mumbail")
     }
 
     if(needSigner) { 
