@@ -183,12 +183,22 @@ let address_account
           ABI,
           provider
         )
-        let cost = utils.parseEther("10")
+
+        function convertTo10(num) {
+          const num10 = num / 1000000000000000000; // divide by 10^18 to get 10
+          return num10;
+        }
+
+
+        let cost = convertTo10( utils.parseUnits("10"))
          let tokenCount = tokenAmount;
          let tokenCost = tokenCount * cost
-         console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
+
+         console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${ethers.utils.parseEther(tokenCost.toString())}`)
       
-          const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
+          const tx = await contract.mint(tokenAmount,{value: ethers.utils.parseEther(tokenCost.toString() ),
+          gasLimit: 5000000
+
         },)
           //wait for tx 
           await  tx.wait();
@@ -389,7 +399,7 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-              onClick={() => mint()} className = {styles.mint}>MINT</button>
+              onClick={mint} className = {styles.mint}>MINT</button>
                 {/* <span  className = {styles.center}>10 MATIC</span> */}
 
             
