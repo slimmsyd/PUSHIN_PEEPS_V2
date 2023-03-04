@@ -40,7 +40,7 @@ export default function Home() {
   useEffect(() => {
     web3modal.current = new Web3modal(
       {
-        network: "mumbai", 
+        network: "polygon", 
         providerOptions: {},
         disableInjectedProvider: false
       }
@@ -84,9 +84,9 @@ let address_account
     //check if connected currenlty to the right chainID
     //set it in brackets because chainID is an object 
     const {chainId} = await web3provider.getNetwork();
-    // Mumbai testnet
+    console.log(chainId)
     if(chainId !== 137) { 
-      window.alert("You are on the wrong network, switch to Mumbail")
+      window.alert("You are on the wrong network, switch to Polygo")
     }
 
     if(needSigner) { 
