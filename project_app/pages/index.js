@@ -174,7 +174,6 @@ let address_account
   } 
 
 
-  // const price = async()
   const mint = async() => 
   { 
     try{ 
@@ -184,11 +183,9 @@ let address_account
           ABI,
           provider
         )
-
-        let tokenCost
-         let tokenCount
-         tokenCount = tokenAmount;
-         tokenCost = tokenCount * cost
+        let cost = utils.parseEther("10")
+         let tokenCount = tokenAmount;
+         let tokenCost = tokenCount * cost
          console.log(`${tokenCount.toString()} this is the token count , this is token Cost ${tokenCost.toString()}`)
       
           const tx = await contract.mint(tokenAmount,{value: utils.parseEther(tokenCost.toString()),
@@ -202,7 +199,6 @@ let address_account
       console.error(e)
     }
   } 
-
 
 
 
@@ -393,7 +389,6 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                disabled = {canMint}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
                 {/* <span  className = {styles.center}>10 MATIC</span> */}
 
@@ -539,7 +534,6 @@ const swiper = new Swiper('.swiper', {
               onChange = {(e) => setTokenAmount(e.target.value)}
               />
               <button
-                disabled = {canMint}
               onClick={() => mint()} className = {styles.mint}>MINT</button>
                 {/* <span  className = {styles.center}>10 MATIC</span> */}
 
